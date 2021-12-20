@@ -1,0 +1,159 @@
+*{
+    padding: 0;margin: 0;
+    box-sizing: border-box;
+}
+.startMenus{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50% ,-50%) scale(1);
+    z-index: 5;
+    height: 350px;
+    width: 90%;
+    background-color: rgba(109, 109, 109, 0.8);
+    backdrop-filter: blur(1px);
+    box-shadow: 5px 5px 10px black;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    border:2px solid #fff;
+}
+.showMenu{
+    transform:scale(1) translate(-50% ,-50%);
+    animation: show 0.2s 1 alternate ease;
+}
+@keyframes show {
+    from{transform: scale(0) translate(-50% ,-50%);}
+}
+.hideMenu{
+    transform:scale(0) translate(-50% , -50%);
+    animation: show 0.2s 1 alternate ease;
+}
+@keyframes show {
+    from{transform: scale(1) translate(-50% , -50%);}
+}
+.instruction
+{
+    font-size: 25px;
+    color: rgb(204, 157, 113);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    padding:10px 0;
+    background-color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 1px rgb(255, 100, 159);
+}
+.score{
+    font-size: 30px;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    color: #fff;
+}
+kbd{
+    background-color: rgb(206, 206, 206);
+    padding:5px;
+    border-radius: 5px;
+}
+.startPlay{
+    width: 100px;
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    color:black;
+    font-size: 18px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.7);
+    transition:letter-spacing 0.2s,
+    border-radius 0.3s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.startPlay:hover{
+    letter-spacing: 2px;
+    border-radius: 2px;
+    border-color: rgb(186, 186, 186);
+    box-shadow: 1px 1px 2px rgba(0,0,0,1);
+}
+.startPlay:active{
+    color:rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+}
+
+
+
+.container{
+    height: 100vh;
+    width:450px;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width:0 2px;
+    overflow: hidden;
+}
+.points{
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    position: absolute;
+    top:10px;
+    right: 20px;
+    z-index: 2;
+}
+.game{
+    height: 100%;
+    background-image: url(./road.jpg);
+    background-size: 100%;
+    background-position: 0 0;
+    position: relative;
+    animation: roadMove 1s infinite linear;
+}
+@keyframes roadMove {
+    from{background-position: 0 90px;}
+    to{
+        background-position: 0 360px;
+    }
+}
+.player{
+    height:140px;
+    width:65px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(./userCar.png);
+    
+    border-radius: 25px;
+    position: absolute;
+    box-shadow: -5px 3px 2px rgba(0, 0, 0, 0.5);
+    bottom: 35px;
+    left: 0px; /*  max 380px */
+}
+.enime,.enime2{
+    height:120px;
+    width:64px;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-image: url(./police.png);
+    background-size: contain;
+    border-radius: 25px;
+    z-index: 1;
+    box-shadow: -5px 3px 2px rgba(0, 0, 0, 0.5);
+    position: absolute;
+}
+
+.enime{
+    top:-150px;
+    left: 50px;
+    animation: animeMove 3s infinite linear;
+}
+.enime2{
+    top:-300px;
+    left: 50px;
+    animation: animeMove2 3.5s infinite linear;
+}
+@keyframes animeMove {
+    to{top:100vh;}
+}
+@keyframes animeMove2 {
+    to{top:100vh;}
+}
